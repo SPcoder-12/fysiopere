@@ -62,6 +62,13 @@ h1 {
         padding-top: 1.2rem;
         padding-bottom: 0.7rem;
     }
+    main {
+        justify-content: flex-start;
+        margin-top: 0;
+        min-height: unset;
+        padding-top: 10rem; /* NOSTAA SISÄLTÖÄ YLEMMÄS */
+        padding-bottom: 1.5rem;
+    }
     h1 {
         font-size: 1.5rem;
         margin-bottom: 1.2rem;
