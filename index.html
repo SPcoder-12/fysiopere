@@ -1,20 +1,137 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="fi" data-page="home">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FysioPere</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FysioPere – Fysioterapia & Hyvinvointi</title>
+    <meta name="description" content="FysioPere – moderni, asiantunteva fysioterapia ja hyvinvointipalvelut. Varaa aika ja aloita palautumisesi." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
 </head>
-<body>
-    <header>
-        <span class="brand">FYSIOPERE</span>
+<body data-page="home">
+    <a class="skip-link" href="#main">Hyppää sisältöön</a>
+    <header class="site-header">
+        <div class="container flex between center-v">
+            <a class="brand" href="index.html" aria-label="FysioPere etusivu">
+                <img src="assets/img/logo.png" alt="FysioPere" width="140" height="44" class="logo" />
+            </a>
+            <nav class="primary-nav" aria-label="Päävalikko">
+                <button class="nav-toggle" aria-expanded="false" aria-label="Valikon avaus"><span></span><span></span><span></span></button>
+                <ul class="nav-list">
+                    <li><a href="index.html" data-nav="home">Etusivu</a></li>
+                    <li><a href="services.html" data-nav="services">Palvelut</a></li>
+                    <li><a href="prices.html" data-nav="prices">Hinnasto</a></li>
+                    <li><a href="expert.html" data-nav="expert">Asiantuntija</a></li>
+                    <li><a href="contact.html" data-nav="contact">Yhteystiedot</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main>
-        <h1>Verkkosivumme uudistuu – avaamme syksyllä 2025.</h1>
-        <p class="lead">
-            Palaathan sivustollemme myöhemmin saadaksesi lisätietoja palveluistamme ja tarjouksistamme.
-        </p>
+
+    <main id="main">
+        <section class="hero container grid-2 gap-xl">
+            <div class="stack hero-text">
+                <h1 class="hero-title">Palauta kehosi tasapaino.<br><span class="accent">Liiku ilman kipua.</span></h1>
+                <p class="lead">Kokonaisvaltaista hyvinvointia tukevaa fysioterapiaa ja valmennusta Pirkanmaalla - yksilöllisesti ja ammattitaidolla! </p>
+                <div class="actions">
+                    <a href="services.html" class="btn btn-primary">Tutustu palveluihin</a>
+                    <a href="price-therapy.html" class="btn btn-outline">Hinnasto</a>
+                </div>
+                <ul class="badges" aria-label="Pikatiedot">
+                    <li>Sertifioitu fysioterapeutti</li>
+                    <li>Evidenssi­pohjainen työote</li>
+                    <li>Räätälöidyt ohjelmat</li>
+                </ul>
+            </div>
+            <div class="hero-media">
+                <div class="media-frame ratio-3-4 shadow-sm rounded-lg">
+                    <img src="assets/img/asiakasveny.png" alt="Fysioterapeutti auttaa asiakasta venytyksessä" loading="lazy" />
+                </div>
+            </div>
+        </section>
+
+        <section class="strip highlight" aria-label="Nopeat hyödyt">
+            <div class="container trio">
+                <article class="card small">
+                    <h3>Kokonaisvaltainen arvio</h3>
+                    <p>Analysoimme liikkeen, kuorman ja palautumisen – löydämme juurisyyn kipuun.</p>
+                </article>
+                <article class="card small">
+                    <h3>Tavoitteellinen ohjelma</h3>
+                    <p>Selkeä vaiheistus ja mitattavat välitavoitteet varmistavat etenemisen.</p>
+                </article>
+                <article class="card small">
+                    <h3>Jatkuva tuki</h3>
+                    <p>Seuranta ja säätö tarvittaessa – et jää yksin harjoittelun kanssa.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="container" aria-labelledby="ref-otsikko">
+            <div class="grid-2 gap-xl center-v">
+                <div class="stack">
+                    <h2 id="ref-otsikko">Miksi FysioPere?</h2>
+                    <p>Yhdistämme kliinisen päättelyn, toiminnallisen harjoittelun ja ajantasaisen tutkimusnäytön. Asiakas on aktiivinen osa prosessia – emme tarjoa vain passiivisia hoitoja, vaan pysyviä ratkaisuja.</p>
+                    <ul class="checklist">
+                        <li>Yksilöllinen kuormitusoptimointi</li>
+                        <li>Objektiiviset mittarit ja seuranta</li>
+                        <li>Selkeä viestintä ja motivointi</li>
+                    </ul>
+                    <a href="expert.html" class="link-arrow">Tutustu asiantuntijaan</a>
+                </div>
+                <div class="media-stack stack-sm">
+                    <div class="media-frame ratio-16-10 shadow-sm rounded-lg">
+                        <img src="assets/img/kahvakuula.png" alt="Kuntoutusharjoitus kahvakuulan kanssa" loading="lazy" />
+                    </div>
+                    <div class="media-frame ratio-16-10 shadow-sm rounded-lg">
+                        <img src="assets/img/levypainot.png" alt="Voimaharjoittelussa käytettäviä levypainoja" loading="lazy" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta gradient" aria-label="Toimintakehote">
+            <div class="container center-text stack">
+                <h2>Valmis aloittamaan palautumisesi?</h2>
+                <p>Varaa alustava arvio tai kysy lisää – vastaamme nopeasti.</p>
+                <a href="contact.html" class="btn btn-light">Ota yhteyttä</a>
+            </div>
+        </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <h3 class="brand small">FYSIOPERE</h3>
+                <p class="text-sm">Laadukasta, tavoitteellista fysioterapiaa ja hyvinvointia. Template‑sisältö – korvaa omilla tiedoilla.</p>
+            </div>
+            <nav aria-label="Ala-valikko">
+                <h4>Valikko</h4>
+                <ul class="plain">
+                    <li><a href="services.html">Palvelut</a></li>
+                    <li><a href="price-therapy.html">Hinnasto</a></li>
+                    <li><a href="expert.html">Asiantuntija</a></li>
+                    <li><a href="contact.html">Yhteystiedot</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h4>Yhteystiedot</h4>
+                <ul class="plain text-sm">
+                    <li><span class="icon">📞</span> 010 123 4567</li>
+                    <li><span class="icon">✉️</span> info@fysiopere.fi</li>
+                    <li><span class="icon">📍</span> Esimerkkikatu 1, 00100 Helsinki</li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-footer text-sm">
+            <div class="container between flex wrap">
+                <span>© 2025 FysioPere</span>
+                <span>Rakennettu modernilla, responsiivisella rakenteella (template)</span>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js" defer></script>
 </body>
 </html>

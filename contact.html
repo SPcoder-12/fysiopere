@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fi" data-page="contact">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yhteystiedot – FysioPere</title>
+  <meta name="description" content="Ota yhteyttä FysioPere – varaukset ja lisätiedot. Template tekstit." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+</head>
+<body data-page="contact">
+  <a class="skip-link" href="#main">Hyppää sisältöön</a>
+  <header class="site-header">
+    <div class="container flex between center-v">
+  <a class="brand" href="index.html" aria-label="FysioPere etusivu"><img src="assets/img/logo.png" alt="FysioPere" width="140" height="44" class="logo" /></a>
+      <nav class="primary-nav" aria-label="Päävalikko">
+        <button class="nav-toggle" aria-expanded="false" aria-label="Valikon avaus"><span></span><span></span><span></span></button>
+        <ul class="nav-list">
+          <li><a href="index.html" data-nav="home">Etusivu</a></li>
+          <li><a href="services.html" data-nav="services">Palvelut</a></li>
+          <li><a href="prices.html" data-nav="prices">Hinnasto</a></li>
+            <li><a href="expert.html" data-nav="expert">Asiantuntija</a></li>
+            <li><a href="contact.html" data-nav="contact">Yhteystiedot</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container stack">
+  <nav class="breadcrumb">Etusivu / Yhteystiedot</nav>
+        <h1>Ota yhteyttä</h1>
+        <p class="lead">Template yhteydenottosivu – lomake ilman taustajärjestelmää. Korvaa tiedot omillasi.</p>
+      </div>
+    </section>
+    <section class="container grid-2 gap-xl">
+      <div class="stack">
+        <h2>Yhteystiedot</h2>
+        <ul class="plain text-sm">
+          <li><strong>Puhelin:</strong> 010 123 4567</li>
+          <li><strong>Sähköposti:</strong> info@fysiopere.fi</li>
+          <li><strong>Osoite:</strong> Esimerkkikatu 1, 00100 Helsinki</li>
+        </ul>
+  <div class="media-frame ratio-16-10 rounded-lg shadow-sm"><img src="assets/img/rulla.png" alt="Toimipisteen sijainti (esimerkkikuva)" /></div>
+      </div>
+      <div class="stack">
+        <h2>Lähetä viesti</h2>
+        <form class="js-contact-form" novalidate>
+          <div>
+            <label for="nimi">Nimi</label>
+            <input id="nimi" name="nimi" type="text" required placeholder="Etunimi Sukunimi" />
+          </div>
+          <div>
+            <label for="email">Sähköposti</label>
+            <input id="email" name="email" type="email" required placeholder="nimi@osoite.fi" />
+          </div>
+            <div>
+              <label for="puhelin">Puhelin</label>
+              <input id="puhelin" name="puhelin" type="tel" placeholder="000 000 000" />
+            </div>
+          <div>
+            <label for="viesti">Viesti</label>
+            <textarea id="viesti" name="viesti" placeholder="Kuvaile tilannettasi lyhyesti"></textarea>
+          </div>
+          <button type="submit" class="btn">Lähetä</button>
+          <p class="text-sm">Template: Lomake ei lähetä oikeasti – lisää taustapalvelu myöhemmin.</p>
+        </form>
+      </div>
+    </section>
+    <section class="cta gradient"><div class="container stack center-text"><h2>Tarvitsetko apua?</h2><p>Kerromme mielellämme lisää palveluista.</p><a href="services.html" class="btn btn-light">Palvelut</a></div></section>
+  </main>
+  <footer class="site-footer"><div class="container sub-footer text-sm">© 2025 FysioPere – Template</div></footer>
+  <script src="script.js" defer></script>
+</body>
+</html>
