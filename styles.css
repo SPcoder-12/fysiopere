@@ -48,6 +48,11 @@ body {display:flex;flex-direction:column;}
 .flex{display:flex}.between{justify-content:space-between}.center-v{align-items:center}.wrap{flex-wrap:wrap}
 .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start}
 .grid-2.center-v{align-items:center}
+@media (max-width:900px){
+    .swap-mobile{display:flex;flex-direction:column}
+    .swap-mobile > .stack:first-of-type{order:1}
+    .swap-mobile > .media-frame:first-of-type{order:2}
+}
 .gap-xl{gap:var(--space-xl)}
 .stack>*,.stack-sm>*,.hero-text>*{margin:0}
 .stack>*+*{margin-top:var(--space-md)}
@@ -96,6 +101,14 @@ body {display:flex;flex-direction:column;}
 .media-frame{overflow:hidden;position:relative;background:var(--grad-soft)}
 .media-frame img{width:100%;height:100%;object-fit:cover;display:block}
 .media-frame.ratio-16-10 img{object-position:center center}
+/* Mobile hero reorder: image between badges and motivation boxes */
+@media (max-width:900px){
+    .hero.container{display:flex;flex-direction:column}
+    .hero .hero-text{order:1}
+    .hero .hero-text .badges{order:unset}
+    .hero .hero-media{order:2;margin-top:1.4rem}
+    .hero .motivation-boxes{order:3;margin-top:1.6rem}
+}
 
 /* Expert page specific */
 .expert-photo{max-width:320px;width:100%;}
@@ -140,13 +153,18 @@ body {display:flex;flex-direction:column;}
 .reasons-section{padding-top:clamp(2.2rem,5vw,3rem);padding-bottom:clamp(2.2rem,5vw,3rem)}
 
 /* Motivation boxes under hero (updated: removed left line) */
-.motivation-boxes .card{position:relative;border:1px solid var(--clr-border);background:#ffffff;padding:var(--space-md)}
+.motivation-boxes .card{position:relative;border:1px solid var(--clr-border);background:#ffffff;padding:var(--space-md);display:flex;justify-content:center;align-items:center;text-align:center;min-height:150px}
 .motivation-boxes .card:before{display:none}
 .motivation-boxes p{margin:0;font-size:.82rem;line-height:1.45;color:var(--clr-text);text-align:center}
 .motivation-boxes strong{font-weight:600;color:var(--clr-primary)}
 /* Uniform row of three motivation boxes (text already centered) */
 /* Shift the third box ~5cm to the right on wide screens (approx visual centering) */
 /* Removed special centering of third motivation box; all three align equally now */
+@media (min-width:900px){
+    /* Arrange first two motivation boxes side-by-side and center the third beneath them spanning full width */
+    .motivation-boxes{display:grid;grid-template-columns:repeat(2,minmax(200px,1fr));justify-content:center;align-items:start;gap:var(--space-lg);}
+    .motivation-boxes > .card:nth-child(3){grid-column:1 / span 2;justify-self:center;}
+}
 
 /* CTA */
 .cta{padding:clamp(3rem,6vw,4rem) 0;text-align:center}
@@ -267,9 +285,13 @@ section:first-of-type:not(.hero){padding-top:var(--space-xl)}
 
 /* Pricing tables */
 .pricing-grid{display:grid;gap:var(--space-lg);grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:stretch}
-.pricing-grid.single{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));justify-content:start}
 .price-card{background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-lg);padding:var(--space-lg);display:flex;flex-direction:column;gap:.8rem;box-shadow:var(--shadow-sm);position:relative}
 .price-card.highlight{border:1px solid var(--clr-primary);box-shadow:0 0 0 3px rgba(var(--clr-primary-rgb),.18);background:linear-gradient(180deg,#ffffff,#f3faf4)}
+@media (min-width:900px){
+    /* Constrain the lone Pienryhmävalmennus card width on desktop without affecting multi-card sections */
+    #hyvinvointi .pricing-grid{justify-content:start}
+    #hyvinvointi .pricing-grid .price-card{max-width:350px}
+}
 .price-tag{font-size:1.9rem;font-weight:700;font-family:var(--font-accent);line-height:1.1}
 .price-period{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--clr-text-dim)}
 .features{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.45rem}
@@ -291,6 +313,26 @@ th{background:var(--clr-surface-alt);font-weight:600}
 /* Accessibility helpers */
 .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#000;color:#fff;padding:.6rem .9rem;border-radius:var(--radius-sm);z-index:999}
+
+/* ================= Page-specific spacing refinements ================= */
+/* Tighten spacing after h2 and before following text on prices & services */
+body[data-page="prices"] .stack > h2 + .text-sm,
+body[data-page="services"] .stack > h2 + p,
+body[data-page="services"] .stack > h2 + .text-sm{margin-top:var(--space-sm)}
+
+/* Reduce overall vertical padding for content sections (exclude sub-hero & CTA) */
+body[data-page="prices"] section:not(.sub-hero):not(.cta),
+body[data-page="services"] section:not(.sub-hero):not(.cta){padding-top:var(--space-xl);padding-bottom:var(--space-xl)}
+
+/* Further tighten the gap specifically between consecutive content sections */
+body[data-page="prices"] section:not(.sub-hero):not(.cta) + section:not(.sub-hero):not(.cta),
+body[data-page="services"] section:not(.sub-hero):not(.cta) + section:not(.sub-hero):not(.cta){padding-top:var(--space-lg)}
+
+@media (min-width:900px){
+    /* Slightly more generous on desktop but still tighter than default */
+    body[data-page="prices"] section:not(.sub-hero):not(.cta),
+    body[data-page="services"] section:not(.sub-hero):not(.cta){padding-top:calc(var(--space-xl) + .4rem);padding-bottom:calc(var(--space-xl) + .4rem)}
+}
 
 /* Media queries */
 @media (max-width: 880px){
@@ -329,6 +371,11 @@ th{background:var(--clr-surface-alt);font-weight:600}
 .footer-contact-list a:hover:after,.footer-contact-list a:focus:after{width:100%}
 .footer-bottom{border-top:1px solid #b7d7bb;background:linear-gradient(90deg,#dff6e6,#e8f9ee)}
 .footer-bottom-inner{display:flex;justify-content:center;align-items:center;padding:.9rem 0;font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#2d6235}
+/* Custom adjustable horizontal shift for Yhteystiedot column */
+@media (min-width:900px){
+    .footer-inner{position:relative}
+    .footer-inner .footer-contact-block{position:relative;left:250px} /* Adjust px value as needed */
+}
 @media (min-width:900px){
     .footer-inner{grid-template-columns:minmax(300px,480px) 260px}
     .footer-contact-list li{justify-content:flex-start}
