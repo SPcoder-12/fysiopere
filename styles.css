@@ -267,6 +267,7 @@ section:first-of-type:not(.hero){padding-top:var(--space-xl)}
 
 /* Pricing tables */
 .pricing-grid{display:grid;gap:var(--space-lg);grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:stretch}
+.pricing-grid.single{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));justify-content:start}
 .price-card{background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-lg);padding:var(--space-lg);display:flex;flex-direction:column;gap:.8rem;box-shadow:var(--shadow-sm);position:relative}
 .price-card.highlight{border:1px solid var(--clr-primary);box-shadow:0 0 0 3px rgba(var(--clr-primary-rgb),.18);background:linear-gradient(180deg,#ffffff,#f3faf4)}
 .price-tag{font-size:1.9rem;font-weight:700;font-family:var(--font-accent);line-height:1.1}
