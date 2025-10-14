@@ -110,6 +110,44 @@ body {display:flex;flex-direction:column;}
 .card h3{font-size:1.1rem;line-height:1.2}
 .card p{font-size:.9rem;color:var(--clr-text-dim)}
 
+/* Numbered reasons badges */
+.reasons-numbered .reason{position:relative;padding-top:calc(var(--space-md) + .6rem)}
+.reason-num{position:absolute;top:var(--space-md);left:var(--space-md);width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;font-family:var(--font-accent);background:linear-gradient(135deg,var(--clr-primary) 0%,var(--clr-primary-accent) 90%);color:#fff;box-shadow:0 2px 6px -2px rgba(0,0,0,.25)}
+.reasons-numbered .reason h3{margin-top:.2rem;padding-left:calc(38px + var(--space-md) + .4rem)}
+@media (max-width:600px){
+    .reason-num{width:32px;height:32px;font-size:.85rem}
+    .reasons-numbered .reason h3{padding-left:calc(32px + var(--space-md) + .35rem)}
+}
+/* Reasons split layout */
+.reasons-split .reasons-left{align-self:start}
+.reasons-split .reasons-image{align-self:stretch;display:flex;align-items:center;justify-content:center}
+.reasons-split .reasons-image .media-frame{width:100%;max-width:520px}
+@media (max-width:900px){
+    .reasons-split{grid-template-columns:1fr}
+    .reasons-split .reasons-image{margin-top:2rem}
+}
+@media (min-width:901px){
+    .reasons-split .reasons-image{margin-top:3.2rem}
+}
+/* Vertical reasons layout */
+.reasons-vertical{display:flex;flex-direction:column;gap:1.1rem;max-width:520px}
+.reasons-vertical .reason{padding:calc(var(--space-md) + .4rem) var(--space-md) var(--space-md) var(--space-md);min-height:86px;display:flex;align-items:center;gap:1rem}
+.reasons-vertical .reason h3{flex:1;margin:0;font-size:1.05rem;padding:0;text-align:left}
+.reasons-section{padding-top:clamp(2.2rem,5vw,3rem);padding-bottom:clamp(2.2rem,5vw,3rem)}
+@media (max-width:600px){
+    .reasons-vertical .reason{gap:.85rem}
+}
+.reasons-section{padding-top:clamp(2.2rem,5vw,3rem);padding-bottom:clamp(2.2rem,5vw,3rem)}
+
+/* Motivation boxes under hero (updated: removed left line) */
+.motivation-boxes .card{position:relative;border:1px solid var(--clr-border);background:#ffffff;padding:var(--space-md)}
+.motivation-boxes .card:before{display:none}
+.motivation-boxes p{margin:0;font-size:.82rem;line-height:1.45;color:var(--clr-text);text-align:center}
+.motivation-boxes strong{font-weight:600;color:var(--clr-primary)}
+/* Uniform row of three motivation boxes (text already centered) */
+/* Shift the third box ~5cm to the right on wide screens (approx visual centering) */
+/* Removed special centering of third motivation box; all three align equally now */
+
 /* CTA */
 .cta{padding:clamp(3rem,6vw,4rem) 0;text-align:center}
 .cta.gradient{background:var(--grad-primary);color:#fff}
