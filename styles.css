@@ -192,7 +192,9 @@ body[data-page="contact"] .contact-layout{grid-template-columns:minmax(480px,1.4
 /* Contact page inline Maksutavat spacing tweaks */
 body[data-page="contact"] .contact-details h2{margin-bottom:.35rem}
 body[data-page="contact"] .contact-details ul{margin-top:.5rem}
-body[data-page="contact"] .contact-details ul + h2{margin-top:1.15rem}
+body[data-page="contact"] .contact-details ul + h2{margin-top:1.7rem}
+/* Slight extra space before Maksutavat heading */
+body[data-page="contact"] .contact-details ul + h2 + ul{margin-top:.85rem}
 /* Icon list styling for main contact details */
 body[data-page="contact"] .contact-list-enhanced{list-style:none;padding:0;margin:0 0 .75rem;display:flex;flex-direction:column;gap:.55rem}
 body[data-page="contact"] .contact-list-enhanced li{display:flex;align-items:flex-start;gap:.55rem;line-height:1.45}
