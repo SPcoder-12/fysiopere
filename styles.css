@@ -101,6 +101,8 @@ body {display:flex;flex-direction:column;}
 .media-frame{overflow:hidden;position:relative;background:var(--grad-soft)}
 .media-frame img{width:100%;height:100%;object-fit:cover;display:block}
 .media-frame.ratio-16-10 img{object-position:center center}
+/* Front page hero image 20% smaller */
+body[data-page="home"] .hero .hero-media .media-frame{max-width:80%;margin-inline:auto}
 /* Mobile hero reorder: image between badges and motivation boxes */
 @media (max-width:900px){
     .hero.container{display:flex;flex-direction:column}
@@ -110,9 +112,9 @@ body {display:flex;flex-direction:column;}
     .hero .motivation-boxes{order:3;margin-top:1.6rem}
 }
 
-/* Expert page specific */
-.expert-photo{max-width:320px;width:100%;}
-@media (min-width:900px){.expert-photo{max-width:360px}}
+/* Expert page specific (20% larger than previous 308px / 346px) */
+.expert-photo{max-width:370px;width:100%;}
+@media (min-width:900px){.expert-photo{max-width:416px}}
 
 /* Cards */
 .strip{padding:var(--space-2xl) 0}
@@ -156,7 +158,7 @@ body {display:flex;flex-direction:column;}
 .motivation-boxes .card{position:relative;border:1px solid var(--clr-border);background:#ffffff;padding:var(--space-md);display:flex;justify-content:center;align-items:center;text-align:center;min-height:150px}
 .motivation-boxes .card:before{display:none}
 .motivation-boxes p{margin:0;font-size:.82rem;line-height:1.45;color:var(--clr-text);text-align:center}
-.motivation-boxes strong{font-weight:600;color:var(--clr-primary)}
+.motivation-boxes strong{font-weight:600;color:var(--clr-text-dim)}
 /* Uniform row of three motivation boxes (text already centered) */
 /* Shift the third box ~5cm to the right on wide screens (approx visual centering) */
 /* Removed special centering of third motivation box; all three align equally now */
@@ -181,6 +183,34 @@ body {display:flex;flex-direction:column;}
 .contact-box:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(255,255,255,.25),transparent 60%);mix-blend-mode:overlay;pointer-events:none}
 .contact-box-link{display:inline-flex;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;font-size:.95rem}
 .contact-box-link:hover,.contact-box-link:focus{text-decoration:underline}
+/* Contact page two-column layout adjustments */
+/* Enlarge Yhteystiedot (contact) section: wider text column and slightly wider media */
+/* Photo column increased from 1fr to 1.5fr (~20%+ more space relative to text) */
+body[data-page="contact"] .contact-layout{grid-template-columns:minmax(480px,1.4fr) minmax(340px,1.5fr);align-items:start}
+/* Maksutavat section spacing & heading size to match Yhteystiedot */
+/* Contact page inline Maksutavat spacing tweaks */
+body[data-page="contact"] .contact-details h2{margin-bottom:.35rem}
+body[data-page="contact"] .contact-details ul{margin-top:.5rem}
+body[data-page="contact"] .contact-details ul + h2{margin-top:1.15rem}
+/* Icon list styling for main contact details */
+body[data-page="contact"] .contact-list-enhanced{list-style:none;padding:0;margin:0 0 .75rem;display:flex;flex-direction:column;gap:.55rem}
+body[data-page="contact"] .contact-list-enhanced li{display:flex;align-items:flex-start;gap:.55rem;line-height:1.45}
+body[data-page="contact"] .contact-list-enhanced li .icon{font-size:1.05rem;line-height:1;display:inline-flex;align-items:center;justify-content:center;min-width:1.25rem;margin-top:.15rem}
+body[data-page="contact"] .contact-list-enhanced a{color:var(--clr-primary);font-weight:600;text-decoration:none;position:relative}
+body[data-page="contact"] .contact-list-enhanced a:after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:linear-gradient(90deg,var(--clr-primary),var(--clr-primary-accent));transition:.35s}
+body[data-page="contact"] .contact-list-enhanced a:hover:after,body[data-page="contact"] .contact-list-enhanced a:focus:after{width:100%}
+/* Adjust features list when reused in contact details for Maksutavat */
+body[data-page="contact"] .payment-methods-list.features li{font-size:.85rem;color:var(--clr-text-dim)}
+body[data-page="contact"] .contact-layout .contact-image,
+body[data-page="contact"] .contact-layout .contact-image .media-frame{max-width:100%;margin-left:0}
+body[data-page="contact"] .contact-layout .contact-details{padding-right:1rem}
+body[data-page="contact"] .contact-layout .contact-details h2{font-size:clamp(2.2rem,3vw,2.65rem)}
+body[data-page="contact"] .contact-layout .contact-details ul{margin-top:.8rem}
+@media (max-width:900px){
+    body[data-page="contact"] .contact-layout{grid-template-columns:1fr}
+    body[data-page="contact"] .contact-layout .contact-image{order:2;margin-top:1.5rem}
+    body[data-page="contact"] .contact-layout .contact-details h2{font-size:clamp(2rem,6vw,2.4rem)}
+}
 
 /* Expert name highlight */
 .expert-name{font-size:clamp(2.4rem,4vw,3rem);line-height:1.05;position:relative;font-family:var(--font-accent);font-weight:700;letter-spacing:-.01em}
@@ -361,8 +391,8 @@ body[data-page="services"] section:not(.sub-hero):not(.cta) + section:not(.sub-h
 .site-footer:before{display:none}
 .footer-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(2rem,5vw,4.2rem);padding:clamp(2.4rem,5vw,3.9rem) 0 2.2rem;align-items:start;background:transparent;border-top:none;box-shadow:none}
 .footer-brand-block{max-width:520px}
-.footer-title{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin:0 0 1rem;position:relative;color:var(--clr-primary);padding-left:1px}
-.footer-title:after{content:"";position:absolute;left:0;bottom:-.5rem;width:50px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--clr-primary),var(--clr-primary-accent))}
+.footer-title{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin:0 0 1rem;position:relative;color:var(--clr-primary);padding-left:1px;display:inline-block}
+.footer-title:after{content:"";position:absolute;left:0;bottom:-.5rem;width:100%;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--clr-primary),var(--clr-primary-accent))}
 .footer-description{margin:0;line-height:1.55;font-size:.92rem;color:var(--clr-text-dim);max-width:56ch}
 .footer-contact-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.6rem}
 .footer-contact-list li{display:flex;align-items:flex-start;gap:.55rem;line-height:1.45}
@@ -382,7 +412,7 @@ body[data-page="services"] section:not(.sub-hero):not(.cta) + section:not(.sub-h
 }
 @media (max-width:640px){
     .footer-inner{text-align:center}
-    .footer-title:after{left:50%;transform:translateX(-50%)}
+    /* Remove centering shift; underline now matches exact text width */
     .footer-contact-list{align-items:center}
     .footer-contact-list li{justify-content:center}
     .footer-description{margin-inline:auto}
