@@ -46,11 +46,32 @@ document.addEventListener('DOMContentLoaded', () => {
 		applyMobileOrder();
 	})();
 
-	// Mobile main nav toggle
-	if (navToggle) {
+	// Mobile main nav toggle with outside click + escape close
+	if (navToggle && navList) {
+		function closeMenu(){
+			navList.classList.remove('open');
+			navToggle.setAttribute('aria-expanded','false');
+		}
+		function openMenu(){
+			navList.classList.add('open');
+			navToggle.setAttribute('aria-expanded','true');
+		}
 		navToggle.addEventListener('click', () => {
-			const open = navList.classList.toggle('open');
-			navToggle.setAttribute('aria-expanded', open);
+			const isOpen = navList.classList.contains('open');
+			isOpen ? closeMenu() : openMenu();
+		});
+		document.addEventListener('click',e=>{
+			if(!navList.classList.contains('open')) return;
+			if(e.target === navToggle || navToggle.contains(e.target)) return;
+			if(navList.contains(e.target)) return;
+			closeMenu();
+		});
+		document.addEventListener('keydown',e=>{
+			if(e.key==='Escape' && navList.classList.contains('open')) closeMenu();
+		});
+		// Close on resize above breakpoint
+		window.addEventListener('resize',()=>{
+			if(window.innerWidth > 880 && navList.classList.contains('open')) closeMenu();
 		});
 	}
 

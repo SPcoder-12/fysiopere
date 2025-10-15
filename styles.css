@@ -381,9 +381,22 @@ body[data-page="services"] section:not(.sub-hero):not(.cta) + section:not(.sub-h
 
 /* Media queries */
 @media (max-width: 880px){
-    .nav-toggle{display:inline-block}
-    .nav-list{position:absolute;top:100%;right:0;flex-direction:column;align-items:stretch;background:linear-gradient(135deg,var(--clr-primary) 0%,var(--clr-primary-accent) 80%);padding:1rem 1.2rem;border:1px solid rgba(0,0,0,.25);border-radius:var(--radius-lg);box-shadow:var(--shadow);min-width:230px;display:none}
-    .nav-list.open{display:flex}
+    .primary-nav{display:flex;align-items:center}
+    .nav-toggle{display:inline-block;position:relative;z-index:120}
+    .nav-list{position:fixed;top:0;right:0;flex-direction:column;align-items:stretch;background:linear-gradient(145deg,var(--clr-primary) 0%,var(--clr-primary-accent) 85%);padding:1.25rem 1rem 1.05rem;border-radius:0 0 0 var(--radius-lg);box-shadow:0 16px 32px -8px rgba(0,0,0,.35);min-width:200px;max-width:220px;display:flex;transform:translateY(-6px) translateX(6px) scale(.9);opacity:0;pointer-events:none;transition:.45s cubic-bezier(.4,.2,.2,1);border:1px solid rgba(255,255,255,.15);border-top:none;z-index:110}
+    .nav-list li:first-child a{margin-top:0}
+    .site-header{overflow:visible}
+    .nav-list:before{display:none}
+    .nav-list.open{opacity:1;pointer-events:auto;transform:translateY(0) translateX(0) scale(1)}
+    /* Keep hamburger visible (no morph) */
+    .nav-toggle[aria-expanded="true"] span{background:#fff}
+    .nav-toggle span{transition:background .3s,transform .4s}
+    /* Optional subtle pulse when open */
+    .nav-toggle[aria-expanded="true"] span:nth-child(2){transform:scaleX(.85)}
+    /* Larger touch target */
+    .nav-toggle{padding:.85rem .75rem;margin-right:-.4rem}
+    .nav-list a{font-size:.95rem}
+    .nav-list li + li{margin-top:.2rem}
     .has-sub>.sub-toggle{display:inline-flex;position:absolute;right:.25rem;top:.3rem;background:none;border:0;width:2rem;height:2rem;align-items:center;justify-content:center;cursor:pointer;color:#fff}
     .has-sub:hover .sub-menu{display:none}
     .sub-menu{position:static;display:none;padding-left:.8rem;margin-top:.4rem;border:none;box-shadow:none;background:#fff;border-radius:var(--radius-sm)}
