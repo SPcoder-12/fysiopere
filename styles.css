@@ -404,6 +404,16 @@ body[data-page="services"] section:not(.sub-hero):not(.cta) + section:not(.sub-h
     .has-sub.open>.sub-menu{display:flex}
 }
 
+/* Blurred background when mobile menu open */
+@media (max-width:880px){
+    /* Blur only content area, never header or nav list */
+    body.menu-open main, body.menu-open .site-footer{filter:blur(4px);transition:filter .35s ease}
+    body.menu-open:before{content:"";position:fixed;inset:0;backdrop-filter:blur(2px);background:rgba(0,0,0,.25);z-index:60;pointer-events:none;transition:.35s}
+    .site-header, .site-header *{filter:none !important}
+    .nav-list{filter:none !important}
+    .site-header{z-index:130}
+}
+
 @media (max-width:600px){
     .hero{padding-top:3.2rem}
     .brand{font-size:1rem}

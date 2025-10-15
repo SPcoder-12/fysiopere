@@ -51,10 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		function closeMenu(){
 			navList.classList.remove('open');
 			navToggle.setAttribute('aria-expanded','false');
+			document.body.classList.remove('menu-open');
 		}
 		function openMenu(){
 			navList.classList.add('open');
 			navToggle.setAttribute('aria-expanded','true');
+			document.body.classList.add('menu-open');
 		}
 		navToggle.addEventListener('click', () => {
 			const isOpen = navList.classList.contains('open');
